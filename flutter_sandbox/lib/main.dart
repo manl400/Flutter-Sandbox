@@ -6,12 +6,17 @@ void main() {
   runApp(MyApp());
 }
 
+// Colors
+// Color.fromRGBO(0, 37, 76, 1.0) >= Blue
+// Color.fromRGBO(122, 132, 135, 1.0) = Silver
+// Color.fromRGBO(235, 0, 36, 1.0) = Red
+
 class RouteWidget extends StatefulWidget {
   @override
   _RouteWidgetState createState() => _RouteWidgetState();
 }
 class _RouteWidgetState extends State<RouteWidget> {
-  var _address = "geo://0,0?q=2700+S+River+Rd%2C+Des+Plaines%2C+IL";
+  var _address = "geo://0,0?q=2700+S+River+Rd%>2C+Des+Plaines%2C+IL";
 
   Widget build(BuildContext context) {
       return Column(
@@ -20,7 +25,7 @@ class _RouteWidgetState extends State<RouteWidget> {
         children: [
           IconButton(
               icon: Icon(Icons.near_me), 
-              color: Colors.blue,
+              color: Color.fromRGBO(0, 37, 76, 1.0),
               onPressed: () => UrlLauncher.launch(_address)
             ),
           Container(
@@ -30,7 +35,7 @@ class _RouteWidgetState extends State<RouteWidget> {
               style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
-                color: Colors.blue,
+                color: Color.fromRGBO(0, 37, 76, 1.0),
               ),
             ),
           ),
@@ -59,7 +64,7 @@ class _ShareWidgetState extends State<ShareWidget> {
         children: [
           IconButton(
               icon: Icon(Icons.share), 
-              color: Colors.blue,
+              color: Color.fromRGBO(0, 37, 76, 1.0),
               onPressed: () => Share.share(_shareMessage)
             ),
           Container(
@@ -69,7 +74,7 @@ class _ShareWidgetState extends State<ShareWidget> {
               style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
-                color: Colors.blue,
+                color: Color.fromRGBO(0, 37, 76, 1.0),
               ),
             ),
           ),
@@ -93,7 +98,7 @@ class _CallWidgetState extends State<CallWidget> {
         children: [
           IconButton(
               icon: Icon(Icons.call), 
-              color: Colors.blue,
+              color: Color.fromRGBO(0, 37, 76, 1.0),
               onPressed: () => UrlLauncher.launch(_telephoneNumber)
             ),
           Container(
@@ -103,7 +108,7 @@ class _CallWidgetState extends State<CallWidget> {
               style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
-                color: Colors.blue,
+                color: Color.fromRGBO(0, 37, 76, 1.0),
               ),
             ),
           ),
@@ -223,6 +228,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Project Iceberg'),
+          backgroundColor: Color.fromRGBO(0, 37, 76, 1.0),
         ),
         body: ListView(
           children: [
@@ -236,6 +242,7 @@ class MyApp extends StatelessWidget {
             textSection,
           ],
         ),
+        backgroundColor: Color.fromRGBO(225, 230, 225, 1.0),
       ),
     );
   }
