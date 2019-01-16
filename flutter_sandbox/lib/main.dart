@@ -1,13 +1,6 @@
-// Copyright 2017 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
-// Uncomment lines 7 and 10 to view the visual layout at runtime.
-//import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 void main() {
-  //debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
 
@@ -22,11 +15,9 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 
   void _toggleFavorite() {
     setState(() {
-      // If the lake is currently favorited, unfavorite it.
       if (_isFavorited) {
         _favoriteCount -= 1;
         _isFavorited = false;
-        // Otherwise, favorite it.
       } else {
         _favoriteCount += 1;
         _isFavorited = true;
@@ -74,7 +65,7 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
-                    'Oeschinen Lake Campground',
+                    'Your mom!',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
