@@ -1,7 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 void main() {
   runApp(MyApp());
+}
+
+class CallWidget extends StatefulWidget {
+  @override
+  _CallWidgetState createState() => _CallWidgetState();
+}
+
+class _CallWidgetState extends State<CallWidget> {
+  var _telephoneNumber = "tel://6302056305";
+
+  Widget build(BuildContext context) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+              icon: Icon(Icons.call), 
+              color: Colors.blue,
+              onPressed: () => UrlLauncher.launch(_telephoneNumber)
+            ),
+          Container(
+            margin: const EdgeInsets.only(top: 8.0),
+            child: 
+            Text(
+              'CALL',
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: Colors.blue,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
 }
 
 class FavoriteWidget extends StatefulWidget {
@@ -65,7 +101,7 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
-                    'Your mom!',
+                    'The Moutains!',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -112,7 +148,7 @@ class MyApp extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          buildButtonColumn(Icons.call, 'CALL'),
+          CallWidget(),
           buildButtonColumn(Icons.near_me, 'ROUTE'),
           buildButtonColumn(Icons.share, 'SHARE'),
         ],
