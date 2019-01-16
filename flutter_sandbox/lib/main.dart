@@ -1,8 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:share/share.dart';
 
 void main() {
   runApp(MyApp());
+}
+
+class RouteWidget extends StatefulWidget {
+  @override
+  _RouteWidgetState createState() => _RouteWidgetState();
+}
+class _RouteWidgetState extends State<RouteWidget> {
+  var _address = "geo://0,0?q=2700+S+River+Rd%2C+Des+Plaines%2C+IL";
+
+  Widget build(BuildContext context) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+              icon: Icon(Icons.near_me), 
+              color: Colors.blue,
+              onPressed: () => UrlLauncher.launch(_address)
+            ),
+          Container(
+            child: 
+            Text(
+              'ROUTE',
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: Colors.blue,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+}
+
+class ShareWidget extends StatefulWidget {
+  @override
+  _ShareWidgetState createState() => _ShareWidgetState();
+}
+
+class _ShareWidgetState extends State<ShareWidget> {
+  var _shareMessage = '''
+  American Eagle
+  Des Plaines, Illinios
+
+  Get a Job here: https://jobs.americaneagle.com/
+  ''';
+
+  Widget build(BuildContext context) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+              icon: Icon(Icons.share), 
+              color: Colors.blue,
+              onPressed: () => Share.share(_shareMessage)
+            ),
+          Container(
+            child: 
+            Text(
+              'SHARE',
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: Colors.blue,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
 }
 
 class CallWidget extends StatefulWidget {
@@ -11,7 +84,7 @@ class CallWidget extends StatefulWidget {
 }
 
 class _CallWidgetState extends State<CallWidget> {
-  var _telephoneNumber = "tel://6302056305";
+  var _telephoneNumber = "tel://8476990300";
 
   Widget build(BuildContext context) {
       return Column(
@@ -24,7 +97,6 @@ class _CallWidgetState extends State<CallWidget> {
               onPressed: () => UrlLauncher.launch(_telephoneNumber)
             ),
           Container(
-            margin: const EdgeInsets.only(top: 8.0),
             child: 
             Text(
               'CALL',
@@ -101,14 +173,14 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
-                    'The Moutains!',
+                    'American Eagle',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
-                  'Kandersteg, Switzerland',
+                  'Des Plaines, Illinois',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -121,36 +193,14 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    Column buildButtonColumn(IconData icon, String label) {
-      Color color = Theme.of(context).primaryColor;
-
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: color),
-          Container(
-            margin: const EdgeInsets.only(top: 8.0),
-            child: Text(
-              label,
-              style: TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w400,
-                color: color,
-              ),
-            ),
-          ),
-        ],
-      );
-    }
 
     Widget buttonSection = Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CallWidget(),
-          buildButtonColumn(Icons.near_me, 'ROUTE'),
-          buildButtonColumn(Icons.share, 'SHARE'),
+          RouteWidget(),
+          ShareWidget(),
         ],
       ),
     );
@@ -159,7 +209,11 @@ class MyApp extends StatelessWidget {
       padding: const EdgeInsets.all(32.0),
       child: Text(
         '''
-Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.
+        Since 1995, Americaneagle.com has completed more than 12,000 online solutions in nearly every industry, from small and mid sized businesses to Fortune 500 companies. We've also successfully completed websites and other online initiatives for professional sports teams as well as large associations. 
+
+        Thanks to our wide range of experiences, we have the unique ability to see the wider picture when it comes to Web technology. If we find that an online tool works for one industry, we can identify its potential to bring success to another industry. Furthermore, with over 25 years of experience in the IT industry, our familiarity of the business allows for us to provide our customers with the most comprehensive Web services and support available. Our clients know that our services are done in house, so if there are ever any issues that need to be addressed, whether it involves hardware, software, programming, connectivity, or the updating of their sites, we have the means and resources to achieve an expedited resolution. 
+
+        In addition to experience, another key to our success is our commitment and dedication to providing the best possible customer service to our clients. While other companies claim to provide top-notch customer service, Americaneagle.com actually delivers customer service that is unparalleled in the industry.
         ''',
         softWrap: true,
       ),
@@ -168,12 +222,12 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       title: 'Flutter Sandbox',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Top Lakes'),
+          title: Text('Project Iceberg'),
         ),
         body: ListView(
           children: [
             Image.asset(
-              'images/lake.jpg',
+              'images/building.jpg',
               height: 240.0,
               fit: BoxFit.cover,
             ),
