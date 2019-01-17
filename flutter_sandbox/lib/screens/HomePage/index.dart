@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/appBar/index.dart';
 import '../../widgets/raisedButton/index.dart';
+import '../../widgets/imageHeader/index.dart';
 
 class HomePage extends StatelessWidget{
   @override
@@ -9,15 +10,15 @@ class HomePage extends StatelessWidget{
       appBar: AppBarWidget(),
       body: ListView(
         children: [
-          Image.asset(
-            'images/lake.jpg',
-            height: 240.0,
-            fit: BoxFit.cover,
-          ),
-          RaisedButtonWidget(),
+          ImageHeaderWidget(
+            imagePath: 'images/lake.jpg',
+            ),
+          Center(
+            child: RaisedButtonWidget(),
+          )
         ],
       ),
-      backgroundColor: Color.fromRGBO(225, 230, 225, 1.0),
+      backgroundColor: Theme.of(context).backgroundColor,
     );
   }
 }

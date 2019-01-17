@@ -4,7 +4,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return new AppBar(
         title: Text('Project Iceberg'),
-        backgroundColor: Color.fromRGBO(0, 37, 76, 1.0),
+        backgroundColor: Theme.of(context).primaryColor,
       );
   }
   Size get preferredSize => new Size.fromHeight(kToolbarHeight);

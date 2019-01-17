@@ -15,7 +15,7 @@ class _CallWidgetState extends State<CallWidget> {
         children: [
           IconButton(
               icon: Icon(Icons.call), 
-              color: Color.fromRGBO(0, 37, 76, 1.0),
+              color: Theme.of(context).primaryColor,
               onPressed: () => UrlLauncher.launch(_telephoneNumber)
             ),
           Container(
@@ -25,7 +25,7 @@ class _CallWidgetState extends State<CallWidget> {
               style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
-                color: Color.fromRGBO(0, 37, 76, 1.0),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),

@@ -31,7 +31,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
             icon: (_isFavorited
                 ? Icon(Icons.star)
                 : Icon(Icons.star_border)),
-            color: Colors.red[500],
+            color: Theme.of(context).accentColor,
             onPressed: _toggleFavorite,
           ),
         ),

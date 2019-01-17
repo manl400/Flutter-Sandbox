@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'itemDetailPage.dart';
 import '../../widgets/appBar/index.dart';
+import '../../widgets/imageHeader/index.dart';
 
 class ItemDetailPage extends StatelessWidget{
   @override
@@ -9,17 +10,15 @@ class ItemDetailPage extends StatelessWidget{
       appBar: AppBarWidget(),
       body: ListView(
         children: [
-          Image.asset(
-            'images/building.jpg',
-            height: 240.0,
-            fit: BoxFit.cover,
+          ImageHeaderWidget(
+            imagePath: 'images/building.jpg',
           ),
           TitleAreaWidget(),
           ButtonRowWidget(),
           DescriptionWidget(),
         ],
       ),
-      backgroundColor: Color.fromRGBO(225, 230, 225, 1.0),
+      backgroundColor: Theme.of(context).backgroundColor,
     );
   }
 }

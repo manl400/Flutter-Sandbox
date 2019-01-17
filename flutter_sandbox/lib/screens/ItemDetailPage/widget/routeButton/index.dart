@@ -15,7 +15,7 @@ class _RouteWidgetState extends State<RouteWidget> {
         children: [
           IconButton(
               icon: Icon(Icons.near_me), 
-              color: Color.fromRGBO(0, 37, 76, 1.0),
+              color: Theme.of(context).primaryColor,
               onPressed: () => UrlLauncher.launch(_address)
             ),
           Container(
@@ -25,7 +25,7 @@ class _RouteWidgetState extends State<RouteWidget> {
               style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
-                color: Color.fromRGBO(0, 37, 76, 1.0),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),

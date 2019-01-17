@@ -20,7 +20,7 @@ class _ShareWidgetState extends State<ShareWidget> {
         children: [
           IconButton(
               icon: Icon(Icons.share), 
-              color: Color.fromRGBO(0, 37, 76, 1.0),
+              color: Theme.of(context).primaryColor,
               onPressed: () => Share.share(_shareMessage)
             ),
           Container(
@@ -30,7 +30,7 @@ class _ShareWidgetState extends State<ShareWidget> {
               style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
-                color: Color.fromRGBO(0, 37, 76, 1.0),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
