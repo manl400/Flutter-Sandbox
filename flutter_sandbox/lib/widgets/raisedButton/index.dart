@@ -12,7 +12,6 @@ class _RaisedButtonWidgetState extends State<RaisedButtonWidget> {
   Widget build(BuildContext context) {
     return RaisedButton (
       elevation: 4.0,
-      padding: const EdgeInsets.only(left: 2.0, right: 2.0),
       textColor: Colors.white,
       color: Theme.of(context).primaryColor,
       onPressed: () {
